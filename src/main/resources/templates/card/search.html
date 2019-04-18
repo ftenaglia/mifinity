@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Card</title>
+</head>
+<body>
+	<h2>Search</h2>
+
+	<ul>
+		<li><a href="/card/add">Add card</a></li>
+		<li><a href="/logout">Logout</a></li>
+	</ul>
+
+	<form action="#" method="post" th:action="@{/card/search}" role="form">
+		<div>
+			<div>
+				<label for="number">Number:</label> <input type="text" id="pattern"
+					name="pattern" size="20" />
+
+			</div>
+			<input type="submit" value="Search" />
+		</div>
+
+	</form>
+
+	<table>
+		<thead>
+			<tr>
+				<td>Number</td>
+				<td>Name</td>
+				<td>Expiry Date</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="card : ${cards}">
+				<td th:text="${card.number}"></td>
+				<td th:text="${card.name}"></td>
+				<td th:text="${#dates.format(card.expiryDate, 'MM/yy')}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+</body>
+</html>

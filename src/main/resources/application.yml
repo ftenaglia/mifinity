@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+   thymeleaf:
+      cache: false
+      suffix: .html
+      emplate-loader-path: classpath:/templates
+   jpa:
+      show-sql: true
+
+logging:
+  level:
+    root: WARN
+    com.mifinity: DEBUG
+      
+#security:
+#   basic:
+#      enabled: false
